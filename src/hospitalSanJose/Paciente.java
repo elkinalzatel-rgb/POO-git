@@ -97,8 +97,28 @@ public class Paciente extends Persona {
         this.sintomas = sintomas;
     }
 
+    /**
+     * Metodo que verifica el presupuesto del paciente
+     *
+     * @param costoConsulta Costo de la consulta
+     * @return true si tiene saldo suficiente o falso si no tiene saldo suficiente
+     */
     public boolean verificarPresupuesto(double costoConsulta) {
-        if (saldoDisponible)
+        if (saldoDisponible >= costoConsulta) {
+            saldoDisponible -= costoConsulta;
+            System.out.println("Pago exitoso");
+            return true;
+        }
+            System.out.println("Saldo insuficiente");
+            return false;
+        }
+    }
+
+    /**
+     * Muestra los sintomas del paciente
+     */
+    public void mostrarSintomas() {
+        System.out.println("Paciente: " + getNombre() + "      Sintomas: " + sintomas);
     }
 
     /**
