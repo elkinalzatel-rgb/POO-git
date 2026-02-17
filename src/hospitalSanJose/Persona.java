@@ -1,12 +1,16 @@
 package hospitalSanJose;
 
+/**
+ * Clase que representa a una persona cualquiera asociada al hospital
+ * Contiene los atributos y metodos comunes
+ */
 public abstract class Persona {
     /**
      * Nombre de la persona
      */
     private String nombre;
     /**
-     * Dni de la persona
+     * DNI   de la persona
      */
     private String dni;
     /**
@@ -94,14 +98,6 @@ public abstract class Persona {
         return genero;
     }
 
-    /**
-     * Actualiza el genero de la persona
-     *
-     * @param genero Genero de la persona
-     */
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
 
     /**
      * Metodo abstracto para que cada persona se presente
