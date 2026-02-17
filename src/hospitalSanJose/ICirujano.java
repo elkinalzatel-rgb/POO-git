@@ -1,5 +1,9 @@
 package hospitalSanJose;
 
 public interface ICirujano {
-    void 
+    boolean validarQuirofano();
+
+    boolean decidirOperacion();
+
+    void
 }
