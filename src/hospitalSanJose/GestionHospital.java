@@ -96,9 +96,6 @@ public class GestionHospital {
         m2.asignarPaciente(p5);
         m2.asignarPaciente(p6);
 
-        c1.asignarPaciente(p7);
-        c1.asignarPaciente(p8);
-
         m3.asignarPaciente(p9);
         m3.asignarPaciente(p10);
 
@@ -120,8 +117,18 @@ public class GestionHospital {
         }
 
         //Paciente intenta pagar su consulta
+        for (Paciente paciente : pacientes) {
+            paciente.pagarConsulta(50.0);
+        }
+        boolean estado = true;
 
-        
+        for (MedicoCirujano c : cirujanos) {
+            c.decidirOperacion(estado);
+        }
+        Atencion at1 = new Atencion();
+        for (Paciente p : pacientes) {
+            at1.procesarIngreso(p);
+        }
     }
 
     /**

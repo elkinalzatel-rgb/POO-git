@@ -91,6 +91,7 @@ public class Medico extends Persona {
      * @param sintoma Sintoma del paciente
      */
     public void asignarPrioridad(String sintoma) {
+        System.out.println("El dr: " + getNombre() + " evaluo el sintoma: " + sintoma + "  y asigno: ");
         switch (sintoma) {
             case ("Infarto"):
                 System.out.println("Nivel de urgencia: 1");

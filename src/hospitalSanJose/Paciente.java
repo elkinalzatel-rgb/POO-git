@@ -97,6 +97,34 @@ public class Paciente extends Persona {
     }
 
     /**
+     * Permite que el paciente intente pagar una consulta
+     * Si el saldo disponible es suficiente, se descuenta el costo y el pago es exitoso
+     * Si no alcanza, el pago es rechazado
+     *
+     * @param costoConsulta Valor de la consulta a pagar.
+     * @return true si el pago fue exitoso, false si fue rechazado.
+     */
+    public boolean pagarConsulta(double costoConsulta) {
+
+        String resultado;
+
+        if (saldoDisponible >= costoConsulta) {
+            saldoDisponible -= costoConsulta;
+            resultado = "Éxito";
+        } else {
+            resultado = "Rechazado";
+        }
+
+        System.out.println("El paciente " + getNombre()
+                + " intenta pagar $" + costoConsulta
+                + " Saldo actual $" + saldoDisponible
+                + " Resultado " + resultado);
+
+        return resultado.equals("Éxito");
+    }
+
+
+    /**
      * Metodo que verifica el presupuesto del paciente
      *
      * @param costoConsulta Costo de la consulta

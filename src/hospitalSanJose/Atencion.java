@@ -24,6 +24,7 @@ public class Atencion {
             case "VidaLoca" -> "Pabellon 3";
             default -> null;
         };
+        System.out.println("Paciente asignado al pabellon: " + pabellon);
         return (pabellon != null) ? pabellon : "ERROR: ingrese una EPS válida";
     }
 
