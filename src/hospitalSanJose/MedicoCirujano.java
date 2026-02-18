@@ -25,8 +25,8 @@ public class MedicoCirujano extends Medico implements ICirujano {
      * @param pacientesAsignados Pacientes asignados al medico cirujano
      * @param numQuirofano       Numero de quirofano del medico cirujano
      */
-    public MedicoCirujano(String nombre, String dni, int edad, String genero, String especialidad, int numRegistro, List<Paciente> pacientesAsignados, int numQuirofano) {
-        super(nombre, dni, edad, genero, especialidad, numRegistro, pacientesAsignados);
+    public MedicoCirujano(String nombre, String dni, int edad, String genero, String especialidad, String numRegistro, List<Paciente> pacientesAsignados, int numQuirofano) {
+        super(nombre, dni, genero, edad, especialidad, numRegistro, pacientesAsignados);
         this.numQuirofano = numQuirofano;
     }
 
