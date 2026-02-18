@@ -3,108 +3,139 @@ package hospitalSanJose;
 import java.util.List;
 
 /**
- * Clase que representa a un paciente del hospital San Josè
- *
+ * Clase que representa a un medico del hospital San Jose
+ * Hereda de persona
  */
 public class Medico extends Persona {
 
     /**
-     * Numero del historial del paciente
+     * Especialidad del medico
      */
     private String especialidad;
 
     /**
-     * Numero del historial del paciente
+     * Numero de registro del medico
      */
-    private int numRegistro;
+    private String numRegistro;
 
     /**
-     * Numero del historial del paciente
+     * Pacientes asignados al medico
      */
     private List<Paciente> pacientesAsignados;
 
     /**
-     * Constructor con parametros para crear un paciente
+     * Constructor con parametros para crear un medico
      *
-     * @param nombre          Nombre del paciente
-     * @param dni             Dni del paciente
-     * @param genero          Genero del paciente
-     * @param edad            Edad del paciente
-     * @param numHistorial    Numero de historial del paciente
-     * @param eps             Eps del paciente
-     * @param saldoDisponible Saldo disponible del paciente
-     * @param sintomas        Sintomas del paciente
+     * @param nombre       Nombre del medico
+     * @param dni          Dni del medico
+     * @param genero       Genero del medico
+     * @param edad         Edad del medico
+     * @param especialidad Especialidad del medico
+     * @param numRegistro  Numero de registro del medico
      */
-    Medico(String nombre, String dni, int edad, String genero, String especialidad, int numRegistro, List<Paciente> pacientesAsignados) {
+    public Medico(String nombre, String dni, String genero, int edad, String especialidad, String numRegistro, List<Paciente> pacientesAsignados) {
+        super(nombre, dni, genero, edad);
         this.numRegistro = numRegistro;
         this.especialidad = especialidad;
         this.pacientesAsignados = pacientesAsignados;
     }
 
     /**
-     * Obtiene el Numero de historial del paciente
+     * Obtiene la especialidad del medicp
      *
-     * @return Numero de historial del paciente
+     * @return Especialidad del medico
      */
     public String getEspecialidad() {
         return especialidad;
     }
 
     /**
-     * Obtiene el Numero de historial del paciente
+     * Obtiene el Numero de registro del medico
      *
-     * @return Numero de historial del paciente
+     * @return Numero de registro del medico
      */
-    public int getNumRegistro() {
+    public String getNumRegistro() {
         return numRegistro;
     }
 
     /**
-     * Obtiene el Numero de historial del paciente
+     * Obtiene la lista de pacientes asignados
      *
-     * @return Numero de historial del paciente
+     * @return Lista de pacientes asignados
      */
     public List<Paciente> getPacientesAsignados() {
         return pacientesAsignados;
     }
 
     /**
-     * Actualiza los sintomas del paciente
+     * Actualiza la especialidad del medico
      *
-     * @param sintomas sintomas actualizados del paciente
+     * @param especialidad Especialidad del medico
      */
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
 
     /**
-     * Actualiza los sintomas del paciente
+     * Actualiza el numero de registro del medico
      *
-     * @param sintomas sintomas actualizados del paciente
+     * @param numRegistro Numero de registro del medico
      */
-    public void setNumRegistro(int numRegistro) {
+    public void setNumRegistro(String numRegistro) {
         this.numRegistro = numRegistro;
     }
 
     /**
-     * Metodo abstracto heredado de la superclase Persona
-     * Permite al paciente presentarse con su nombre
+     * Metodo que asigna un nivel de urgencia dependiendo de los sintomas del paciente
+     *
+     * @param sintoma Sintoma del paciente
      */
-    public void asignarPaciente() {
+    public void asignarPrioridad(String sintoma) {
+        switch (sintoma) {
+            case ("Infarto"):
+                System.out.println("Nivel de urgencia: 1");
+                break;
+            case ("Sangrado"):
+                System.out.println("Nivel de urgencia: 2");
+                break;
+            case ("Fiebre"):
+                System.out.println("Nivel de urgencia: 3");
+                break;
+            case ("Dolor"):
+                System.out.println("Nivel de urgencia: 4");
+                break;
+            default:
+                System.out.println("Enfermedad no reconocida");
+        }
+
+    }
+
+    /**
+     * Asigna un paciente al medico, agregandolo a la lista de pacientes asignados
+     * Si el paciente es null, no se asigna
+     *
+     * @param p Paciente que sera asignado al medico
+     */
+    public void asignarPaciente(Paciente p) {
+        if (p != null) {
+            pacientesAsignados.add(p);
+        }
+    }
+
+    /**
+     * Metodo que permite revisar cada paciente enlistandolos
+     */
+    public void revisarPacientes() {
+        System.out.println("Pacientes del dr: " + getNombre());
+        for (Paciente p : pacientesAsignados) {
+            System.out.println("Revisando paciente: " + p.getNombre());
+        }
 
     }
 
     /**
      * Metodo abstracto heredado de la superclase Persona
-     * Permite al paciente presentarse con su nombre
-     */
-    public void revisarPaciente() {
-
-    }
-
-    /**
-     * Metodo abstracto heredado de la superclase Persona
-     * Permite al paciente presentarse con su nombre
+     * Permite al medico presentarse con su nombre
      */
     @Override
     public void presentarse() {

@@ -1,7 +1,7 @@
 package hospitalSanJose;
 
 public interface ICirujano {
-    boolean validarQuirofano();
+    boolean validarQuirofano(boolean estado);
 
-    boolean decidirOperacion();
+    String decidirOperacion(boolean estado);
 }
