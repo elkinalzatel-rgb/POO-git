@@ -1,9 +1,5 @@
 package hospitalSanJose;
 
-/**
- * Clase que representa a un paciente del hospital San Josè
- *
- */
 public class Paciente extends Persona {
     /**
      * Numero del historial del paciente
@@ -109,10 +105,10 @@ public class Paciente extends Persona {
             System.out.println("Pago exitoso");
             return true;
         }
-            System.out.println("Saldo insuficiente");
-            return false;
-        }
+        System.out.println("Saldo insuficiente");
+        return false;
     }
+
 
     /**
      * Muestra los sintomas del paciente
@@ -128,5 +124,6 @@ public class Paciente extends Persona {
     @Override
     public void presentarse() {
         System.out.println("Soy un paciente y mi nombre es : " + getNombre());
+
     }
 }
