@@ -1,5 +1,8 @@
 package hospitalSanJose;
 
+/**
+ * Clase que representa a un paciente del hospital San jose
+ */
 public class Paciente extends Persona {
     /**
      * Numero del historial del paciente
