@@ -22,11 +22,16 @@ public class MedicoCirujano extends Medico implements ICirujano {
 
     @Override
     public boolean validarQuirofano() {
-        return false;
+        
     }
 
     @Override
     public boolean decidirOperacion() {
         return false;
+    }
+
+    @Override
+    public void presentarse() {
+        System.out.println("Hola soy un medico y me llamo: " + getNombre());
     }
 }
