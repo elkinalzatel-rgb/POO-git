@@ -38,7 +38,7 @@ public class GestionHospital {
         personas.add(m3);
         personas.add(m4);
 
-        MedicoCirujano c1 = new MedicoCirujano("Juan", "2345235", 31, "Masculino", "Cirugia General", "12345", new ArrayList<>(), 3);
+        MedicoCirujano c1 = new MedicoCirujano("Law", "2345235", 26, "Masculino", "Cirugia General", "12345", new ArrayList<>(), 3);
         MedicoCirujano c2 = new MedicoCirujano("Sofia", "4235252", 23, "Femenino", "Cirugia Cardiaca", "54321", new ArrayList<>(), 1);
         MedicoCirujano c3 = new MedicoCirujano("Mateo", "3523522", 23, "Masculino", "Neurocirugia", "12543", new ArrayList<>(), 2);
         MedicoCirujano c4 = new MedicoCirujano("Paula", "5235255", 56, "Femenino", "Cirugia Plastica", "32145", new ArrayList<>(), 4);
