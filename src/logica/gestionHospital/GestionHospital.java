@@ -28,6 +28,12 @@ public class GestionHospital {
         pacientes = new ArrayList<>();
     }
 
+    public void registrarPaciente(Paciente paciente) {
+        pacientes.add(paciente);
+        personas.add(paciente);
+    }
+
+
     public void cargarDatos() {
         Medico m1 = new Medico("Karolay Garcia", "1094050692", "Femenino", 18, "Oftanmologa", "1234", new ArrayList<>());
         Medico m2 = new Medico("Santiago Sanchez", "1454035691", "Masculino", 19, "Rinologo", "4321", new ArrayList<>());
@@ -69,30 +75,18 @@ public class GestionHospital {
         Paciente p11 = new Paciente("Juliana", "3011", "F", 24, "H011", "Comeva", 40, "Fiebre");
         Paciente p12 = new Paciente("Sebastian", "3012", "M", 31, "H012", "VidaLoca", 70, "Sangrado");
 
-        pacientes.add(p1);
-        pacientes.add(p2);
-        pacientes.add(p3);
-        pacientes.add(p4);
-        pacientes.add(p5);
-        pacientes.add(p6);
-        pacientes.add(p7);
-        pacientes.add(p8);
-        pacientes.add(p9);
-        pacientes.add(p10);
-        pacientes.add(p11);
-        pacientes.add(p12);
-        personas.add(p1);
-        personas.add(p2);
-        personas.add(p3);
-        personas.add(p4);
-        personas.add(p5);
-        personas.add(p6);
-        personas.add(p7);
-        personas.add(p8);
-        personas.add(p9);
-        personas.add(p10);
-        personas.add(p11);
-        personas.add(p12);
+        registrarPaciente(p1);
+        registrarPaciente(p2);
+        registrarPaciente(p3);
+        registrarPaciente(p4);
+        registrarPaciente(p5);
+        registrarPaciente(p6);
+        registrarPaciente(p7);
+        registrarPaciente(p8);
+        registrarPaciente(p9);
+        registrarPaciente(p10);
+        registrarPaciente(p11);
+        registrarPaciente(p12);
 
         m1.asignarPaciente(p1);
         m1.asignarPaciente(p2);
