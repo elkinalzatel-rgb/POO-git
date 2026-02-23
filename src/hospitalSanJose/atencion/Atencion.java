@@ -1,4 +1,6 @@
-package hospitalSanJose;
+package hospitalSanJose.atencion;
+
+import hospitalSanJose.personas.Paciente;
 
 /**
  * Clase que representa la atencion a un paciente

@@ -1,4 +1,4 @@
-package hospitalSanJose;
+package hospitalSanJose.personas;
 
 import java.util.List;
 

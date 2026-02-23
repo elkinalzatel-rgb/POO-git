@@ -1,4 +1,6 @@
-package hospitalSanJose;
+package hospitalSanJose.personas;
+
+import hospitalSanJose.interfaces.ICirujano;
 
 import java.util.List;
 

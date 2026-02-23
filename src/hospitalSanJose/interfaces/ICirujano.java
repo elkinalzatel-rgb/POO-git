@@ -1,4 +1,4 @@
-package hospitalSanJose;
+package hospitalSanJose.interfaces;
 
 public interface ICirujano {
     boolean validarQuirofano(boolean estado);

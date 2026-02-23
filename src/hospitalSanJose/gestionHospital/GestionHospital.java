@@ -1,4 +1,10 @@
-package hospitalSanJose;
+package hospitalSanJose.gestionHospital;
+
+import hospitalSanJose.atencion.Atencion;
+import hospitalSanJose.personas.Medico;
+import hospitalSanJose.personas.MedicoCirujano;
+import hospitalSanJose.personas.Paciente;
+import hospitalSanJose.personas.Persona;
 
 import java.util.ArrayList;
 import java.util.List;

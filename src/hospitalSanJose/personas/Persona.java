@@ -1,4 +1,4 @@
-package hospitalSanJose;
+package hospitalSanJose.personas;
 
 /**
  * Clase que representa a una persona cualquiera asociada al hospital
