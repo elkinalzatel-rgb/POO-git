@@ -1,4 +1,4 @@
-package hospitalSanJose.personas;
+package logica.personas;
 
 import java.util.List;
 

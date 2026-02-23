@@ -1,10 +1,10 @@
-package hospitalSanJose.gestionHospital;
+package logica.gestionHospital;
 
-import hospitalSanJose.atencion.Atencion;
-import hospitalSanJose.personas.Medico;
-import hospitalSanJose.personas.MedicoCirujano;
-import hospitalSanJose.personas.Paciente;
-import hospitalSanJose.personas.Persona;
+import logica.atencion.Atencion;
+import logica.personas.Medico;
+import logica.personas.MedicoCirujano;
+import logica.personas.Paciente;
+import logica.personas.Persona;
 
 import java.util.ArrayList;
 import java.util.List;

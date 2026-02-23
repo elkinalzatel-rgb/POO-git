@@ -1,6 +1,6 @@
-package hospitalSanJose.personas;
+package logica.personas;
 
-import hospitalSanJose.interfaces.ICirujano;
+import logica.interfaces.ICirujano;
 
 import java.util.List;
 

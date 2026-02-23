@@ -1,4 +1,4 @@
-package hospitalSanJose.interfaces;
+package logica.interfaces;
 
 public interface ICirujano {
     boolean validarQuirofano(boolean estado);

@@ -1,4 +1,4 @@
-package hospitalSanJose.personas;
+package logica.personas;
 
 /**
  * Clase que representa a una persona cualquiera asociada al hospital

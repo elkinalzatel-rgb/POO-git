@@ -1,6 +1,6 @@
-package hospitalSanJose.atencion;
+package logica.atencion;
 
-import hospitalSanJose.personas.Paciente;
+import logica.personas.Paciente;
 
 /**
  * Clase que representa la atencion a un paciente
