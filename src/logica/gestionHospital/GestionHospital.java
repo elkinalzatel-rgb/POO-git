@@ -1,6 +1,6 @@
 package logica.gestionHospital;
 
-import interfazGrafica.Hospital;
+import interfazGrafica.panelPrincipal.PanelPrincipal;
 import logica.atencion.Atencion;
 import logica.personas.Medico;
 import logica.personas.MedicoCirujano;
@@ -40,6 +40,13 @@ public class GestionHospital {
 
     public boolean registrarMedicoCirujano(MedicoCirujano medicoCirujano) {
         if (cirujanos.add(medicoCirujano)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean registrarMedico(Medico medico) {
+        if (medicos.add(medico)) {
             return true;
         }
         return false;
@@ -151,12 +158,10 @@ public class GestionHospital {
      * Método principal del programa
      */
     public static void main(String[] args) {
-        JFrame ventana = new Hospital();
-        ventana.setSize(700, 700);
-        ventana.setLocationRelativeTo(null);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setVisible(true);
-
+//        JFrame ventana = new PanelRegistro();
+//        ventana.setVisible(true);
+        JFrame ventana1 = new PanelPrincipal();
+        ventana1.setVisible(true);
     }
 
 }

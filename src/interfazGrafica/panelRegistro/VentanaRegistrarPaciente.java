@@ -1,4 +1,4 @@
-package interfazGrafica;
+package interfazGrafica.panelRegistro;
 
 import logica.gestionHospital.GestionHospital;
 import logica.personas.Paciente;
