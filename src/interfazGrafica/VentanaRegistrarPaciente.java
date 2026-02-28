@@ -1,7 +1,12 @@
 package interfazGrafica;
 
+import logica.gestionHospital.GestionHospital;
+import logica.personas.Paciente;
+
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class VentanaRegistrarPaciente extends JDialog {
     private JPanel contentPane;
@@ -14,54 +19,61 @@ public class VentanaRegistrarPaciente extends JDialog {
     private JLabel nombre;
     private JLabel edad;
     private JLabel dni;
+    private JLabel genero;
+    final GestionHospital hospital = new GestionHospital();
 
-    public VentanaRegistrarPaciente() {
+    public VentanaRegistrarPaciente(JFrame parent) {
+        super(parent, true);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onOK();
-            }
-        });
+        // acciones de botones...
+        buttonOK.addActionListener(e -> onOK());
+        buttonCancel.addActionListener(e -> onCancel());
 
-        buttonCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        });
-
-        // call onCancel() when cross is clicked
+        // cerrar con X o ESC
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 onCancel();
             }
         });
-
-        // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        contentPane.registerKeyboardAction(e -> onCancel(),
+                KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
+                JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
+
 
     private void onOK() {
-        // add your CODE here
-        dispose();
+        String nombre = txtNombre.getText();
+        String edadStr = txtEdad.getText();
+        String genero = txtGenero.getText();
+        String dni = txtDNI.getText();
+
+        if (nombre.isEmpty() || edadStr.isEmpty() || genero.isEmpty() || dni.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
+            return;
+        }
+
+        int edad;
+        try {
+            edad = Integer.parseInt(edadStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Edad debe ser un número.");
+            return;
+        }
+        Paciente p = new Paciente();
+        if (hospital.registrarPaciente(p)) {
+            JOptionPane.showMessageDialog(this, "El paciente ha sido registrado correctamente.");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Hubo un error al registrar el paciente.");
+        }
     }
+
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-        VentanaRegistrarPaciente dialog = new VentanaRegistrarPaciente();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 }

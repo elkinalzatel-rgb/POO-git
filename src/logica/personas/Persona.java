@@ -102,5 +102,5 @@ public abstract class Persona {
     /**
      * Metodo abstracto para que cada persona se presente
      */
-    public abstract void presentarse();
+    public abstract String presentarse();
 }

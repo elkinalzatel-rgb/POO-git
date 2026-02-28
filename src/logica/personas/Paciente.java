@@ -51,6 +51,9 @@ public class Paciente extends Persona {
         this.sintomas = sintomas;
     }
 
+    public Paciente(String nombre, String dni, int edad, String genero) {
+    }
+
     /**
      * Obtiene el Numero de historial del paciente
      *
@@ -153,8 +156,7 @@ public class Paciente extends Persona {
      * Permite al paciente presentarse con su nombre
      */
     @Override
-    public void presentarse() {
-        System.out.println("Soy un paciente y mi nombre es : " + getNombre());
-
+    public String presentarse() {
+        return "Soy un paciente y mi nombre es : " + getNombre();
     }
 }

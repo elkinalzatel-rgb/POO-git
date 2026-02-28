@@ -139,8 +139,8 @@ public class Medico extends Persona {
      * Permite al medico presentarse con su nombre
      */
     @Override
-    public void presentarse() {
-        System.out.println("Soy un médico y mi nombre es: " + getNombre());
+    public String presentarse() {
+        return "Soy un médico y mi nombre es: " + getNombre();
 
     }
 }

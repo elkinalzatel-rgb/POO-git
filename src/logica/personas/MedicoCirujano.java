@@ -87,7 +87,7 @@ public class MedicoCirujano extends Medico implements ICirujano {
      */
 
     @Override
-    public void presentarse() {
-        System.out.println("Hola soy un cirujano y me llamo: " + getNombre());
+    public String presentarse() {
+        return "Hola soy un cirujano y me llamo: " + getNombre();
     }
 }
