@@ -18,11 +18,10 @@ public class PanelRegistro extends JFrame {
     private JComboBox CTipoMedico;
     private JButton BlistaDePersonas;
     private JTable tablaPersonas;
-    final GestionHospital gestion = new GestionHospital();
+    final GestionHospital gestion;
 
-
-    public PanelRegistro() {
-
+    public PanelRegistro(GestionHospital gestion) {
+        this.gestion = gestion;
         setContentPane(panel1);
         setSize(1200, 800);
         setLocationRelativeTo(null);

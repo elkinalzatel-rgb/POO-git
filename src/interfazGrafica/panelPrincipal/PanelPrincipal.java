@@ -1,6 +1,8 @@
 package interfazGrafica.panelPrincipal;
 
+import interfazGrafica.panelPacientes.PanelPacientes;
 import interfazGrafica.panelRegistro.PanelRegistro;
+import logica.gestionHospital.GestionHospital;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,17 +20,24 @@ public class PanelPrincipal extends JFrame {
     private JPanel CardM;
     private JPanel PanelConsolaContenedor;
     private JTextArea consola;
+    final GestionHospital gestion = new GestionHospital();
 
     public PanelPrincipal() {
         setContentPane(panel1);
         setSize(1200, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        PanelRegistro panelRegistro = new PanelRegistro();
+        PanelRegistro panelRegistro = new PanelRegistro(gestion);
+        PanelPacientes panelPacientes = new PanelPacientes(gestion);
         CardR.setLayout(new BorderLayout());
         CardR.add(panelRegistro.getPanel1(), BorderLayout.CENTER);
         CardR.revalidate();
         CardR.repaint();
+        CardP.setLayout(new BorderLayout());
+        CardP.add(panelPacientes.getPanel2());
+        CardP.revalidate();
+        CardP.repaint();
+
         BSistema.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
