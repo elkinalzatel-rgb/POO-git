@@ -1,6 +1,7 @@
 package interfazGrafica.panelPacientes;
 
 import interfazGrafica.panelPrincipal.PanelPrincipal;
+import logica.atencion.Atencion;
 import logica.gestionHospital.GestionHospital;
 import logica.personas.Paciente;
 
@@ -16,6 +17,7 @@ public class PanelPacientes {
     private JButton btnPabello;
     private JLabel LInfo;
     private JPanel panel2;
+    private JLabel LPabellon;
     final GestionHospital gestion;
     private Paciente pacienteEncontrado = null;
     final PanelPrincipal panelPrincipal;
@@ -24,6 +26,7 @@ public class PanelPacientes {
     public PanelPacientes(GestionHospital gestion, PanelPrincipal panelPrincipal) {
         this.gestion = gestion;
         this.panelPrincipal = panelPrincipal;
+        LPabellon.setVisible(false);
         btnPagar.setVisible(false);
         btnPabello.setVisible(false);
         txtNombrePaciente.addActionListener(new ActionListener() {
@@ -62,6 +65,14 @@ public class PanelPacientes {
                         "\n Saldo disponible: " + pacienteEncontrado.getSaldoDisponible() +
                         "\n ";
                 panelPrincipal.mostrarMensaje(reporte);
+            }
+        });
+        btnPabello.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Atencion atencion = new Atencion();
+                LPabellon.setVisible(true);
+                LPabellon.setText(atencion.procesarIngreso(pacienteEncontrado));
             }
         });
     }

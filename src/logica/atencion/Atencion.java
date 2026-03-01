@@ -21,12 +21,14 @@ public class Atencion {
      */
     public String procesarIngreso(Paciente p) {
         String pabellon = switch (p.getEps()) {
-            case "Sura" -> " Pabellon 1";
-            case "Comeva" -> "Pabellon 2";
-            case "VidaLoca" -> "Pabellon 3";
+            case "Sura" -> " EPS: " + p.getEps() +
+                    "               Paciente asignado al pabellon 1";
+            case "Comeva" -> "  EPS: " + p.getEps() +
+                    "               Paciente asignado al pabellon 2";
+            case "Nueva EPS" -> " EPS: " + p.getEps() +
+                    "               Paciente asignado al pabellon 3";
             default -> null;
         };
-        System.out.println("Paciente asignado al pabellon: " + pabellon);
         return (pabellon != null) ? pabellon : "ERROR: ingrese una EPS válida";
     }
 

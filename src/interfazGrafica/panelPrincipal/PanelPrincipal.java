@@ -1,5 +1,6 @@
 package interfazGrafica.panelPrincipal;
 
+import interfazGrafica.panelInicio.PanelInicio;
 import interfazGrafica.panelPacientes.PanelPacientes;
 import interfazGrafica.panelRegistro.PanelRegistro;
 import logica.gestionHospital.GestionHospital;
@@ -20,6 +21,8 @@ public class PanelPrincipal extends JFrame {
     private JPanel CardM;
     private JPanel PanelConsolaContenedor;
     private JTextArea consola;
+    private JButton BInicio;
+    private JPanel CardInicio;
     final GestionHospital gestion = new GestionHospital();
 
     public PanelPrincipal() {
@@ -27,8 +30,14 @@ public class PanelPrincipal extends JFrame {
         setSize(1200, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        PanelInicio panelInicio = new PanelInicio(gestion, this);
         PanelRegistro panelRegistro = new PanelRegistro(gestion);
         PanelPacientes panelPacientes = new PanelPacientes(gestion, this);
+        cambiarPanel("cardInicio");
+        CardInicio.setLayout(new BorderLayout());
+        CardInicio.add(panelInicio.getPanel1(), BorderLayout.CENTER);
+        CardInicio.revalidate();
+        CardInicio.repaint();
         CardR.setLayout(new BorderLayout());
         CardR.add(panelRegistro.getPanel1(), BorderLayout.CENTER);
         CardR.revalidate();
@@ -37,6 +46,14 @@ public class PanelPrincipal extends JFrame {
         CardP.add(panelPacientes.getPanel2());
         CardP.revalidate();
         CardP.repaint();
+
+
+        BInicio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cambiarPanel("cardInicio");
+            }
+        });
 
         BSistema.addActionListener(new ActionListener() {
             @Override

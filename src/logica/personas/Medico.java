@@ -106,7 +106,7 @@ public class Medico extends Persona {
                 System.out.println("Nivel de urgencia: 4");
                 break;
             default:
-                System.out.println("Enfermedad no reconocida");
+                System.out.println("La enfermedad no puede ser tratada en este hospital");
         }
 
     }

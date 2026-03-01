@@ -7,7 +7,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="affe7" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="affe7" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="West"/>
         <properties>
@@ -17,28 +17,44 @@
         <children>
           <component id="c4c30" class="javax.swing.JButton" binding="BSistema">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <borderPainted value="false"/>
+              <background color="-12548865"/>
+              <borderPainted value="true"/>
+              <foreground color="-16777216"/>
               <text value="Sistema"/>
             </properties>
           </component>
           <component id="354" class="javax.swing.JButton" binding="BPaciente">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <borderPainted value="false"/>
+              <background color="-12548865"/>
+              <borderPainted value="true"/>
+              <foreground color="-16777216"/>
               <text value="Pacientes"/>
+            </properties>
+          </component>
+          <component id="cc081" class="javax.swing.JButton" binding="BInicio">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-12548865"/>
+              <foreground color="-16777216"/>
+              <text value="Inicio"/>
             </properties>
           </component>
           <component id="61e8" class="javax.swing.JButton" binding="BMedico">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <borderPainted value="false"/>
+              <background color="-12548865"/>
+              <borderPainted value="true"/>
+              <foreground color="-16777216"/>
               <text value="Medicos"/>
             </properties>
           </component>
@@ -73,6 +89,15 @@
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <card name="cardMedicos"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="7e694" binding="CardInicio" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <card name="cardInicio"/>
             </constraints>
             <properties/>
             <border type="none"/>

@@ -28,6 +28,9 @@ public class VentanaRegistrarPaciente extends JDialog {
     private JLabel LEps;
     private JLabel LSaldoDisponible;
     private JLabel LSintomas;
+    private JComboBox CEps;
+    private JComboBox CSintomas;
+    private JComboBox CGenero;
     final GestionHospital hospital;
     final PanelRegistro panelRegistro;
 
@@ -56,14 +59,18 @@ public class VentanaRegistrarPaciente extends JDialog {
 
 
     private void onOK() {
+        if (CGenero.getSelectedIndex() == 0 || CEps.getSelectedIndex() == 0 || CSintomas.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Por favor complete todas las selecciones", "Datos faltantes", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         String nombre = txtNombre.getText();
         String edadStr = txtEdad.getText();
-        String genero = txtGenero.getText();
+        String genero = String.valueOf(CGenero.getSelectedItem());
         String dni = txtDNI.getText();
         String numHistorial = txtNumHistorial.getText();
-        String eps = txtEps.getText();
+        String eps = String.valueOf(CEps.getSelectedItem());
         String saldoDisponibleStr = txtSaldoDisponible.getText();
-        String sintomas = txtSintomas.getText();
+        String sintomas = String.valueOf(CSintomas.getSelectedItem());
 
         if (nombre.isEmpty() || edadStr.isEmpty() || genero.isEmpty() || dni.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
