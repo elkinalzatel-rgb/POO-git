@@ -8,6 +8,7 @@ import logica.personas.Persona;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +19,9 @@ public class PanelRegistro extends JFrame {
     private JComboBox CTipoMedico;
     private JButton BlistaDePersonas;
     private JTable tablaPersonas;
+    private JLabel LPortalSistema;
+    private JPanel JPanel;
+    private JLabel Llogo;
     final GestionHospital gestion;
 
     public PanelRegistro(GestionHospital gestion) {
@@ -66,7 +70,11 @@ public class PanelRegistro extends JFrame {
                 actualizarTabla();
             }
         });
+        String rutaRelativa = "/imagenes/LogoSanJose.png";
+        ImageIcon iconoOriginal = new ImageIcon(getClass().getResource(rutaRelativa));
 
+        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        Llogo.setIcon(new ImageIcon(imagenEscalada));
     }
 
     public void actualizarTabla() {
@@ -83,6 +91,7 @@ public class PanelRegistro extends JFrame {
             modelo.addRow(new Object[]{p.getNombre(), rol});
         }
         tablaPersonas.setModel(modelo);
+        ;
     }
 
 

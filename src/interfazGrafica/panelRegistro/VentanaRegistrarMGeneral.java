@@ -84,10 +84,10 @@ public class VentanaRegistrarMGeneral extends JDialog {
         Medico medico = new Medico(nombre, dni, genero, edad, especialidad, numRegistro, new ArrayList<>());
         if (hospital.registrarMedico(medico)) {
             panelRegistro.actualizarTabla();
-            JOptionPane.showMessageDialog(this, "El Medico Cirujano ha sido registrado correctamente.");
+            JOptionPane.showMessageDialog(this, "El Medico General ha sido registrado correctamente.");
             dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "Hubo un error al registrar el medico cirujano .");
+            JOptionPane.showMessageDialog(this, "Hubo un error al registrar el medico General .");
         }
         dispose();
     }

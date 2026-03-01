@@ -167,6 +167,15 @@ public class GestionHospital {
      * Método principal del programa
      */
     public static void main(String[] args) {
+        try {
+            com.formdev.flatlaf.FlatLightLaf.setup();
+            UIManager.put("Component.arc", 20);
+            UIManager.put("JButton.arc", 20);
+
+
+        } catch (Exception ex) {
+            System.err.println("Error al cargar FlatLaf");
+        }
 //        JFrame ventana = new PanelRegistro();
 //        ventana.setVisible(true);
         JFrame ventana1 = new PanelPrincipal();

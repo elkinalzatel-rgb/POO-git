@@ -6,6 +6,7 @@ import logica.gestionHospital.GestionHospital;
 import logica.personas.Paciente;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -18,6 +19,8 @@ public class PanelPacientes {
     private JLabel LInfo;
     private JPanel panel2;
     private JLabel LPabellon;
+    private JLabel Llogo;
+    private JLabel LPortalPacientes;
     final GestionHospital gestion;
     private Paciente pacienteEncontrado = null;
     final PanelPrincipal panelPrincipal;
@@ -75,6 +78,12 @@ public class PanelPacientes {
                 LPabellon.setText(atencion.procesarIngreso(pacienteEncontrado));
             }
         });
+
+        String rutaRelativa = "/imagenes/LogoSanJose.png";
+        ImageIcon iconoOriginal = new ImageIcon(getClass().getResource(rutaRelativa));
+
+        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        Llogo.setIcon(new ImageIcon(imagenEscalada));
     }
 
     public JPanel getPanel2() {
