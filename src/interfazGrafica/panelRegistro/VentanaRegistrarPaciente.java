@@ -20,6 +20,14 @@ public class VentanaRegistrarPaciente extends JDialog {
     private JLabel edad;
     private JLabel dni;
     private JLabel genero;
+    private JTextField txtNumHistorial;
+    private JTextField txtEps;
+    private JTextField txtSaldoDisponible;
+    private JTextField txtSintomas;
+    private JLabel LNumHistorial;
+    private JLabel LEps;
+    private JLabel LSaldoDisponible;
+    private JLabel LSintomas;
     final GestionHospital hospital;
     final PanelRegistro panelRegistro;
 
@@ -52,6 +60,10 @@ public class VentanaRegistrarPaciente extends JDialog {
         String edadStr = txtEdad.getText();
         String genero = txtGenero.getText();
         String dni = txtDNI.getText();
+        String numHistorial = txtNumHistorial.getText();
+        String eps = txtEps.getText();
+        String saldoDisponibleStr = txtSaldoDisponible.getText();
+        String sintomas = txtSintomas.getText();
 
         if (nombre.isEmpty() || edadStr.isEmpty() || genero.isEmpty() || dni.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
@@ -65,7 +77,14 @@ public class VentanaRegistrarPaciente extends JDialog {
             JOptionPane.showMessageDialog(this, "Edad debe ser un número.");
             return;
         }
-        Paciente p = new Paciente(nombre, dni, edad, genero);
+        double saldoDisponible = 0;
+        try {
+            saldoDisponible = Double.parseDouble(saldoDisponibleStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Saldo debe ser un numero");
+            return;
+        }
+        Paciente p = new Paciente(nombre, dni, genero, edad, numHistorial, eps, saldoDisponible, sintomas);
         if (hospital.registrarPaciente(p)) {
             panelRegistro.actualizarTabla();
             JOptionPane.showMessageDialog(this, "El paciente ha sido registrado correctamente.");

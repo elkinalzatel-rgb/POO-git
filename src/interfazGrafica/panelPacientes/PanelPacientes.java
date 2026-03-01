@@ -1,11 +1,13 @@
 package interfazGrafica.panelPacientes;
 
+import interfazGrafica.panelPrincipal.PanelPrincipal;
 import logica.gestionHospital.GestionHospital;
 import logica.personas.Paciente;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class PanelPacientes {
     private JLabel LBuscarPaciente;
@@ -15,16 +17,19 @@ public class PanelPacientes {
     private JLabel LInfo;
     private JPanel panel2;
     final GestionHospital gestion;
+    private Paciente pacienteEncontrado = null;
+    final PanelPrincipal panelPrincipal;
 
-    public PanelPacientes(GestionHospital gestion) {
+
+    public PanelPacientes(GestionHospital gestion, PanelPrincipal panelPrincipal) {
         this.gestion = gestion;
+        this.panelPrincipal = panelPrincipal;
         btnPagar.setVisible(false);
         btnPabello.setVisible(false);
         txtNombrePaciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nombreABuscar = txtNombrePaciente.getText().trim();
-                Paciente pacienteEncontrado = null;
                 for (Paciente p : gestion.getPacientes()) {
                     if (p.getNombre().equalsIgnoreCase(nombreABuscar)) {
                         pacienteEncontrado = p;
@@ -44,6 +49,19 @@ public class PanelPacientes {
 
                     JOptionPane.showMessageDialog(null, "No existe el paciente: " + nombreABuscar);
                 }
+            }
+        });
+        btnPagar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Random random = new Random();
+                double costoConsulta = Math.round((1 + random.nextDouble() * 49) * 100.0) / 100.0;
+                boolean exito = pacienteEncontrado.pagarConsulta(costoConsulta);
+                String reporte = "El paciente: " + pacienteEncontrado.getNombre() +
+                        "\nPago : " + costoConsulta + "\nResultado: " + (exito ? "Éxitoso" : "Rechazado") +
+                        "\n Saldo disponible: " + pacienteEncontrado.getSaldoDisponible() +
+                        "\n ";
+                panelPrincipal.mostrarMensaje(reporte);
             }
         });
     }

@@ -51,9 +51,6 @@ public class Paciente extends Persona {
         this.sintomas = sintomas;
     }
 
-    public Paciente(String nombre, String dni, int edad, String genero) {
-        super(nombre, dni, genero, edad);
-    }
 
     /**
      * Obtiene el Numero de historial del paciente
@@ -109,24 +106,20 @@ public class Paciente extends Persona {
      * @return true si el pago fue exitoso, false si fue rechazado.
      */
     public boolean pagarConsulta(double costoConsulta) {
-
         String resultado;
-
-        if (saldoDisponible >= costoConsulta) {
+        if (verificarPresupuesto(costoConsulta)) {
             saldoDisponible -= costoConsulta;
-            resultado = "Éxito";
+            saldoDisponible = Math.round(saldoDisponible * 100.0) / 100.0;
+            resultado = "Éxitoso";
         } else {
             resultado = "Rechazado";
         }
+        System.out.println(" El pago ha sido " + resultado +
+                "\n Costo de la consulta: " + costoConsulta +
+                "\n Saldo restante: " + saldoDisponible);
 
-        System.out.println("El paciente " + getNombre()
-                + " intenta pagar $" + costoConsulta
-                + " Saldo actual $" + saldoDisponible
-                + " Resultado " + resultado);
-
-        return resultado.equals("Éxito");
+        return resultado.equals("Éxitoso");
     }
-
 
     /**
      * Metodo que verifica el presupuesto del paciente
@@ -136,11 +129,8 @@ public class Paciente extends Persona {
      */
     public boolean verificarPresupuesto(double costoConsulta) {
         if (saldoDisponible >= costoConsulta) {
-            saldoDisponible -= costoConsulta;
-            System.out.println("Pago exitoso");
             return true;
         }
-        System.out.println("Saldo insuficiente");
         return false;
     }
 

@@ -28,7 +28,7 @@ public class PanelPrincipal extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         PanelRegistro panelRegistro = new PanelRegistro(gestion);
-        PanelPacientes panelPacientes = new PanelPacientes(gestion);
+        PanelPacientes panelPacientes = new PanelPacientes(gestion, this);
         CardR.setLayout(new BorderLayout());
         CardR.add(panelRegistro.getPanel1(), BorderLayout.CENTER);
         CardR.revalidate();
