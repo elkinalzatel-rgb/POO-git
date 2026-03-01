@@ -20,10 +20,12 @@ public class VentanaRegistrarPaciente extends JDialog {
     private JLabel edad;
     private JLabel dni;
     private JLabel genero;
-    final GestionHospital hospital = new GestionHospital();
+    final GestionHospital hospital;
+    final PanelRegistro panelRegistro;
 
-    public VentanaRegistrarPaciente(JFrame parent) {
-        super(parent, true);
+    public VentanaRegistrarPaciente(GestionHospital hospital, PanelRegistro panelRegistro) {
+        this.hospital = hospital;
+        this.panelRegistro = panelRegistro;
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -63,8 +65,9 @@ public class VentanaRegistrarPaciente extends JDialog {
             JOptionPane.showMessageDialog(this, "Edad debe ser un número.");
             return;
         }
-        Paciente p = new Paciente();
+        Paciente p = new Paciente(nombre, dni, edad, genero);
         if (hospital.registrarPaciente(p)) {
+            panelRegistro.actualizarTabla();
             JOptionPane.showMessageDialog(this, "El paciente ha sido registrado correctamente.");
             dispose();
         } else {

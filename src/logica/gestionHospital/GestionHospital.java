@@ -1,7 +1,6 @@
 package logica.gestionHospital;
 
 import interfazGrafica.panelPrincipal.PanelPrincipal;
-import logica.atencion.Atencion;
 import logica.personas.Medico;
 import logica.personas.MedicoCirujano;
 import logica.personas.Paciente;
@@ -32,28 +31,25 @@ public class GestionHospital {
     }
 
     public boolean registrarPaciente(Paciente paciente) {
-        if (pacientes.add(paciente)) {
-            return true;
-        }
-        return false;
+        pacientes.add(paciente);
+        personas.add(paciente);
+        return true;
     }
 
     public boolean registrarMedicoCirujano(MedicoCirujano medicoCirujano) {
-        if (cirujanos.add(medicoCirujano)) {
-            return true;
-        }
-        return false;
+        cirujanos.add(medicoCirujano);
+        personas.add(medicoCirujano);
+        return true;
     }
 
     public boolean registrarMedico(Medico medico) {
-        if (medicos.add(medico)) {
-            return true;
-        }
-        return false;
+        medicos.add(medico);
+        personas.add(medico);
+        return true;
     }
 
 
-    public void cargarDatos() {
+//    public void cargarDatos() {
 //        Medico m1 = new Medico("Karolay Garcia", "1094050692", "Femenino", 18, "Oftanmologa", "1234", new ArrayList<>());
 //        Medico m2 = new Medico("Santiago Sanchez", "1454035691", "Masculino", 19, "Rinologo", "4321", new ArrayList<>());
 //        Medico m3 = new Medico("Elkin Alzate", "2364050456", "Masculino", 20, "Cardiologo", "2314", new ArrayList<>());
@@ -120,39 +116,52 @@ public class GestionHospital {
 //
 //        m4.asignarPaciente(p11);
 //        m4.asignarPaciente(p12);
-    }
+//    }
 
-    public void simularDia() {
-        //Presentacion de las personas segun su cargo
-        for (Persona p : personas) {
-            p.presentarse();
-        }
-
-        //Lista de pacientes del medico evaluando su sintoma
-        for (Medico m : medicos) {
-            m.revisarPacientes();
-            for (Paciente p : m.getPacientesAsignados())
-                m.asignarPrioridad(p.getSintomas());
-        }
-
-        //Paciente intenta pagar su consulta
-        for (Paciente paciente : pacientes) {
-            paciente.pagarConsulta(50.0);
-        }
-        boolean estado = true;
-
-        for (MedicoCirujano c : cirujanos) {
-            c.decidirOperacion(estado);
-        }
-        Atencion at1 = new Atencion();
-        for (Paciente p : pacientes) {
-            at1.procesarIngreso(p);
-        }
-    }
+//    public void simularDia() {
+//        //Presentacion de las personas segun su cargo
+//        for (Persona p : personas) {
+//            p.presentarse();
+//        }
+//
+//        //Lista de pacientes del medico evaluando su sintoma
+//        for (Medico m : medicos) {
+//            m.revisarPacientes();
+//            for (Paciente p : m.getPacientesAsignados())
+//                m.asignarPrioridad(p.getSintomas());
+//        }
+//
+//        //Paciente intenta pagar su consulta
+//        for (Paciente paciente : pacientes) {
+//            paciente.pagarConsulta(50.0);
+//        }
+//        boolean estado = true;
+//
+//        for (MedicoCirujano c : cirujanos) {
+//            c.decidirOperacion(estado);
+//        }
+//        Atencion at1 = new Atencion();
+//        for (Paciente p : pacientes) {
+//            at1.procesarIngreso(p);
+//        }
+//    }
 
     public List<Paciente> getPacientes() {
         return pacientes;
     }
+
+    public List<Persona> getPersonas() {
+        return personas;
+    }
+
+    public List<Medico> getMedicos() {
+        return medicos;
+    }
+
+    public List<MedicoCirujano> getCirujanos() {
+        return cirujanos;
+    }
+
 
     /**
      * Método principal del programa
@@ -163,5 +172,5 @@ public class GestionHospital {
         JFrame ventana1 = new PanelPrincipal();
         ventana1.setVisible(true);
     }
-
 }
+

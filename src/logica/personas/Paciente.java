@@ -52,6 +52,7 @@ public class Paciente extends Persona {
     }
 
     public Paciente(String nombre, String dni, int edad, String genero) {
+        super(nombre, dni, genero, edad);
     }
 
     /**

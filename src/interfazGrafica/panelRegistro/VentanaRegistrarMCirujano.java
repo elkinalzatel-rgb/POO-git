@@ -25,9 +25,12 @@ public class VentanaRegistrarMCirujano extends JDialog {
     private JLabel LNumRegistro;
     private JLabel LNumeroQuirofano;
     private JTextField txtEspecialidad;
-    final GestionHospital hospital = new GestionHospital();
+    final GestionHospital hospital;
+    final PanelRegistro panelRegistro;
 
-    public VentanaRegistrarMCirujano() {
+    public VentanaRegistrarMCirujano(GestionHospital hospital, PanelRegistro panelRegistro) {
+        this.hospital = hospital;
+        this.panelRegistro = panelRegistro;
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -90,6 +93,7 @@ public class VentanaRegistrarMCirujano extends JDialog {
         }
         MedicoCirujano medicoCirujano = new MedicoCirujano(nombre, dni, edad, genero, especialidad, numRegistro, new ArrayList<>(), numQuirofano);
         if (hospital.registrarMedicoCirujano(medicoCirujano)) {
+            panelRegistro.actualizarTabla();
             JOptionPane.showMessageDialog(this, "El Medico Cirujano ha sido registrado correctamente.");
             dispose();
         } else {
