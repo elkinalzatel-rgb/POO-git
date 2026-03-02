@@ -133,6 +133,7 @@ public class PanelMedicos {
     }
 
     private void resetearPanel() {
+        panelPrincipal1.mostrarMensaje("");
         tablaPacientesAsignados.setVisible(false);
         BevaluarSintomas.setVisible(false);
         BrealizarCirugia.setVisible(false);

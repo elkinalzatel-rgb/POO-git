@@ -35,6 +35,7 @@ public class PanelPacientes {
         txtNombrePaciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                resetearPanel();
                 String nombreABuscar = txtNombrePaciente.getText().trim();
                 for (Paciente p : gestion.getPacientes()) {
                     if (p.getNombre().equalsIgnoreCase(nombreABuscar)) {
@@ -89,4 +90,12 @@ public class PanelPacientes {
     public JPanel getPanel2() {
         return panel2;
     }
+
+    private void resetearPanel() {
+        panelPrincipal.mostrarMensaje("");
+        LPabellon.setVisible(false);
+        btnPagar.setVisible(false);
+        btnPabello.setVisible(false);
+    }
+
 }

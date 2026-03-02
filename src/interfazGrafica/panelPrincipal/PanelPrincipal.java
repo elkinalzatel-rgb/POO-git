@@ -52,7 +52,8 @@ public class PanelPrincipal extends JFrame {
         CardP.add(panelPacientes.getPanel2());
         CardP.revalidate();
         CardP.repaint();
-
+        ImageIcon icono = new ImageIcon(getClass().getResource("/imagenes/LogoSanJose.png"));
+        setIconImage(icono.getImage());
 
         BInicio.addActionListener(new ActionListener() {
             @Override
