@@ -72,6 +72,17 @@ public class GestionHospital {
         }
     }
 
+    public boolean existeQuirofano(int numeroBuscado) {
+
+        for (MedicoCirujano medicoCirujano : cirujanos) {
+            if (medicoCirujano.getNumQuirofano() == numeroBuscado) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
     public void reasignarPacientesPendientes() {
 

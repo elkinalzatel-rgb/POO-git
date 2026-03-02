@@ -100,11 +100,19 @@ public class PanelMedicos {
                 for (Paciente p : validarMedico().getPacientesAsignados()) {
                     String mnsj = validarMedico().asignarPrioridad(p.getSintomas());
                     panelPrincipal1.mostrarMensaje(mnsj);
-
                 }
             }
         });
 
+        BrealizarCirugia.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (validarMedico() instanceof MedicoCirujano) {
+                    String mnsj = ((MedicoCirujano) validarMedico()).decidirOperacion(gestion.existeQuirofano(((MedicoCirujano) validarMedico()).getNumQuirofano()));
+                    panelPrincipal.mostrarMensaje(mnsj);
+                }
+            }
+        });
     }
 
     public Medico validarMedico() {

@@ -98,6 +98,11 @@ public class VentanaRegistrarMCirujano extends JDialog {
             JOptionPane.showMessageDialog(this, "Numero quirofano debe ser un numero. ");
             return;
         }
+        if (hospital.existeQuirofano(numQuirofano)) {
+            JOptionPane.showMessageDialog(null,
+                    "Ya existe un quirófano con ese número.");
+            return;
+        }
         MedicoCirujano medicoCirujano = new MedicoCirujano(nombre, dni, edad, genero, especialidad, numRegistro, new ArrayList<>(), numQuirofano);
         if (hospital.registrarMedicoCirujano(medicoCirujano)) {
             hospital.reasignarPacientesPendientes();

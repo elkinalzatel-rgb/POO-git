@@ -89,7 +89,7 @@ public class PanelPrincipal extends JFrame {
     }
 
     public void mostrarMensaje(String msj) {
-        consola.append(msj);
+        consola.setText(msj);
         consola.setCaretPosition(consola.getDocument().getLength());
     }
 

@@ -50,22 +50,11 @@ public class MedicoCirujano extends Medico implements ICirujano {
         this.numQuirofano = numQuirofano;
     }
 
-    /**
-     * Metodo que valida el estado del quirofano
-     *
-     * @param estado Estado del quirofano
-     * @return True si esta disponible, false si no esta disponible
-     */
+
     @Override
     public boolean validarQuirofano(boolean estado) {
-        if (estado) {
-            System.out.println("El quirofano esta disponible");
-            return true;
-        }
-        System.out.println("El quirofano no esta disponible en este momento");
-        return false;
+        return true;
     }
-
 
     /**
      * Metodo que aprueba o no la operacion segun la validacion del quirofano
