@@ -184,11 +184,10 @@
             <properties>
               <model>
                 <item value="Seleccione Sintoma--"/>
+                <item value="Apendicitis"/>
+                <item value="Asma"/>
+                <item value="Hernia inguinal"/>
                 <item value="Infarto"/>
-                <item value="Sangrado"/>
-                <item value="Fiebre"/>
-                <item value="Dolor"/>
-                <item value="Otro"/>
               </model>
             </properties>
           </component>

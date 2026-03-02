@@ -24,6 +24,8 @@ public class Paciente extends Persona {
      */
     private String sintomas;
 
+    private Medico medicoAsignado;
+
     /**
      * Constructor vacio para crear un paciente
      */
@@ -88,6 +90,14 @@ public class Paciente extends Persona {
         return sintomas;
     }
 
+    public Medico getMedicoAsignado() {
+        return medicoAsignado;
+    }
+
+    public void setMedicoAsignado(Medico medicoAsignado) {
+        this.medicoAsignado = medicoAsignado;
+    }
+
     /**
      * Actualiza los sintomas del paciente
      *
@@ -150,4 +160,9 @@ public class Paciente extends Persona {
     public String presentarse() {
         return "Soy un paciente y mi nombre es : " + getNombre();
     }
+
+    public boolean estaAsignado() {
+        return medicoAsignado != null;
+    }
+
 }

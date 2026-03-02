@@ -23,6 +23,8 @@ public class VentanaRegistrarMGeneral extends JDialog {
     private JLabel LEdad;
     private JLabel LNumRegistro;
     private JLabel LEspecialidad;
+    private JComboBox CEspecialidad;
+    private JComboBox CGenero;
     final GestionHospital hospital;
     final PanelRegistro panelRegistro;
 
@@ -64,11 +66,15 @@ public class VentanaRegistrarMGeneral extends JDialog {
     private void onOK() {
         String nombre = txtNombre.getText();
         String edadStr = txtEdad.getText();
-        String genero = txtGenero.getText();
+        String genero = String.valueOf(CGenero.getSelectedItem());
         String dni = txtDNI.getText();
-        String especialidad = txtEspecialidad.getText();
+        String especialidad = String.valueOf(CEspecialidad.getSelectedItem());
         String numRegistro = txtNumRegistro.getText();
 
+        if (CGenero.getSelectedIndex() == 0 || CEspecialidad.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Por favor complete todas las selecciones", "Datos faltantes", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         if (nombre.isEmpty() || edadStr.isEmpty() || genero.isEmpty() || dni.isEmpty() || especialidad.isEmpty() || numRegistro.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
             return;
@@ -83,6 +89,7 @@ public class VentanaRegistrarMGeneral extends JDialog {
         }
         Medico medico = new Medico(nombre, dni, genero, edad, especialidad, numRegistro, new ArrayList<>());
         if (hospital.registrarMedico(medico)) {
+            hospital.reasignarPacientesPendientes();
             panelRegistro.actualizarTabla();
             JOptionPane.showMessageDialog(this, "El Medico General ha sido registrado correctamente.");
             dispose();
@@ -96,5 +103,6 @@ public class VentanaRegistrarMGeneral extends JDialog {
         // add your code here if necessary
         dispose();
     }
+
 
 }

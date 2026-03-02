@@ -72,7 +72,7 @@ public class VentanaRegistrarPaciente extends JDialog {
         String saldoDisponibleStr = txtSaldoDisponible.getText();
         String sintomas = String.valueOf(CSintomas.getSelectedItem());
 
-        if (nombre.isEmpty() || edadStr.isEmpty() || genero.isEmpty() || dni.isEmpty()) {
+        if (nombre.isEmpty() || edadStr.isEmpty() || genero.isEmpty() || dni.isEmpty() || numHistorial.isEmpty() || eps.isEmpty() || saldoDisponibleStr.isEmpty() || sintomas.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
             return;
         }
@@ -91,8 +91,10 @@ public class VentanaRegistrarPaciente extends JDialog {
             JOptionPane.showMessageDialog(this, "Saldo debe ser un numero");
             return;
         }
+
         Paciente p = new Paciente(nombre, dni, genero, edad, numHistorial, eps, saldoDisponible, sintomas);
         if (hospital.registrarPaciente(p)) {
+            hospital.asignarPacienteSegunEspecialidad(p);
             panelRegistro.actualizarTabla();
             JOptionPane.showMessageDialog(this, "El paciente ha sido registrado correctamente.");
             dispose();
@@ -105,4 +107,5 @@ public class VentanaRegistrarPaciente extends JDialog {
     private void onCancel() {
         dispose();
     }
+
 }

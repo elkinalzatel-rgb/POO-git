@@ -66,6 +66,14 @@ public class PanelRegistro extends JFrame {
         BlistaDePersonas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (gestion.getPersonas().isEmpty()) {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "No hay personas registradas",
+                            "Información",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
                 tablaPersonas.setVisible(true);
                 actualizarTabla();
             }
@@ -91,7 +99,6 @@ public class PanelRegistro extends JFrame {
             modelo.addRow(new Object[]{p.getNombre(), rol});
         }
         tablaPersonas.setModel(modelo);
-        ;
     }
 
 

@@ -90,25 +90,35 @@ public class Medico extends Persona {
      *
      * @param sintoma Sintoma del paciente
      */
-    public void asignarPrioridad(String sintoma) {
-        System.out.println("El dr: " + getNombre() + " evaluo el sintoma: " + sintoma + "  y asigno: ");
-        switch (sintoma) {
-            case ("Infarto"):
-                System.out.println("Nivel de urgencia: 1");
+    public String asignarPrioridad(String sintoma) {
+
+        String nivelUrgencia = "Sin nivel asignado";
+
+        switch (sintoma.trim()) {
+
+            case "Infarto":
+                nivelUrgencia = "Nivel de urgencia: 1";
                 break;
-            case ("Sangrado"):
-                System.out.println("Nivel de urgencia: 2");
+
+            case "Apendicitis":
+                nivelUrgencia = "Nivel de urgencia: 2";
                 break;
-            case ("Fiebre"):
-                System.out.println("Nivel de urgencia: 3");
+
+            case "Asma":
+                nivelUrgencia = "Nivel de urgencia: 3";
                 break;
-            case ("Dolor"):
-                System.out.println("Nivel de urgencia: 4");
+
+            case "Hernia inguinal":
+                nivelUrgencia = "Nivel de urgencia: 4";
                 break;
+
             default:
-                System.out.println("La enfermedad no puede ser tratada en este hospital");
+                return "La enfermedad no puede ser tratada en este hospital";
         }
 
+        return "El Dr. " + getNombre() +
+                " evaluó el síntoma: " + sintoma +
+                " y asignó: " + nivelUrgencia;
     }
 
     /**

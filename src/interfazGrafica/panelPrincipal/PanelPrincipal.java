@@ -1,6 +1,7 @@
 package interfazGrafica.panelPrincipal;
 
 import interfazGrafica.panelInicio.PanelInicio;
+import interfazGrafica.panelMedicos.PanelMedicos;
 import interfazGrafica.panelPacientes.PanelPacientes;
 import interfazGrafica.panelRegistro.PanelRegistro;
 import logica.gestionHospital.GestionHospital;
@@ -33,7 +34,12 @@ public class PanelPrincipal extends JFrame {
         PanelInicio panelInicio = new PanelInicio(gestion, this);
         PanelRegistro panelRegistro = new PanelRegistro(gestion);
         PanelPacientes panelPacientes = new PanelPacientes(gestion, this);
+        PanelMedicos panelMedicos = new PanelMedicos(gestion, this);
         cambiarPanel("cardInicio");
+        CardM.setLayout(new BorderLayout());
+        CardM.add(panelMedicos.getPanel3(), BorderLayout.CENTER);
+        CardM.revalidate();
+        CardM.repaint();
         CardInicio.setLayout(new BorderLayout());
         CardInicio.add(panelInicio.getPanel1(), BorderLayout.CENTER);
         CardInicio.revalidate();
@@ -86,5 +92,7 @@ public class PanelPrincipal extends JFrame {
         consola.append(msj);
         consola.setCaretPosition(consola.getDocument().getLength());
     }
+
+
 }
 

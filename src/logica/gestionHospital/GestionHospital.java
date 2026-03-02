@@ -30,6 +30,59 @@ public class GestionHospital {
 
     }
 
+    public void asignarPacienteSegunEspecialidad(Paciente p) {
+
+        String especialidadNecesaria = null;
+
+        switch (p.getSintomas().trim()) {
+
+            case "Infarto":
+                especialidadNecesaria = "Cardiologia";
+                break;
+
+            case "Apendicitis":
+                especialidadNecesaria = "Cirugia General";
+                break;
+
+            case "Asma":
+                especialidadNecesaria = "Neumologia";
+                break;
+
+            case "Hernia inguinal":
+                especialidadNecesaria = "Ortopedia";
+                break;
+        }
+
+        if (especialidadNecesaria == null) {
+            return;
+        }
+
+        for (Persona persona : personas) {
+
+            if (persona instanceof Medico) {
+
+                Medico m = (Medico) persona;
+
+                if (m.getEspecialidad().equalsIgnoreCase(especialidadNecesaria)) {
+                    m.asignarPaciente(p);
+                    p.setMedicoAsignado(m);
+                    break;
+                }
+            }
+        }
+    }
+
+
+    public void reasignarPacientesPendientes() {
+
+        for (Paciente p : pacientes) {
+
+            if (!p.estaAsignado()) {
+                asignarPacienteSegunEspecialidad(p);
+            }
+        }
+    }
+
     public boolean registrarPaciente(Paciente paciente) {
         pacientes.add(paciente);
         personas.add(paciente);
